@@ -1,0 +1,28 @@
+@import "components/var";
+ .container{
+     margin:0 auto;
+     max-width:1200px;
+     display: flex;
+     flex-direction: column;
+     min-height: 100vh;
+     overflow: hidden;
+ }
+
+ header ,footer{
+     background-color: black;
+     height: 60px;
+ }
+ main{
+     flex-grow: 1;
+ }
+
+ *{
+     box-sizing: border-box;
+ }
+
+
+ @media (max-width:$md) {
+   .lg-only{
+     display: none !important;
+   }
+ }

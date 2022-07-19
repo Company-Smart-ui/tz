@@ -1,0 +1,96 @@
+@import '../var.scss';
+
+
+.users{
+  button{
+    padding: 10px 15px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 0;
+    background: url('./chat.svg') no-repeat center;
+    &:hover{
+     transform:scale(1.2);
+    }
+    @include sm{
+    background : #c6c9f8;
+      font-size: 15px;
+      &:hover{
+        background-color: #cbcff8;
+      }
+    }
+    &:disabled{
+      cursor: auto;
+      opacity: 0.5;
+    }
+
+  }
+  padding: 0 20px;
+:global{
+
+  .card-grid{
+    margin:  40px 10px;
+    & div{
+      padding: 10px 0;
+      justify-content: center;
+      outline: solid #f9f9ff 1px;
+      @include sm{
+
+        outline: solid #f1f1ff 1px;
+
+      }
+      display: flex;
+
+      align-items: center;
+    }
+    display: grid;
+    grid-template-columns:  30% 30% 30% 10%;
+    grid-template-rows: repeat(3, 20fr);
+    grid-template-areas:
+              "  photo photo  status   action       "
+              "  photo  photo   age age          "
+              "  name name registration registration  ";
+
+
+    @include sm {
+
+      grid-template-columns: repeat(3, calc(100% / 3));
+      grid-template-rows: repeat(4, 1fr);
+      grid-template-areas:
+              "  photo name     name       "
+              "  photo  status  action          "
+              "  age status      action     "
+              "  registration registration  registration    ";
+    }
+
+    @include md{
+      margin: 0;
+      grid-template-columns: repeat(6 ,calc(100% /6 ));
+      grid-template-rows: repeat(2 ,1fr);
+      grid-template-areas:
+              "  photo name   status registration age action   "
+              "  photo name   status registration age action   "
+    }
+
+  }
+  .photo.photo{
+    padding: 0;
+    @include sm{
+      padding: 10px 0;
+    }
+    img{
+      width: 100%;
+      @include sm{
+
+        height: 60px;
+        width: 60px;
+        border-radius: 50%;
+      }
+
+      object-fit: cover;
+    }
+  }
+}
+
+
+}
