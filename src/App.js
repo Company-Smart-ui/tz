@@ -14,7 +14,7 @@ function App() {
      const [data , setData] = useState({});
  useEffect(()=>{
 
-     fetch("http://tz.smart-ui.pro/")
+     fetch("https://tz.smart-ui.pro/")
          .then((data)=>{
             return data.json();
          }
