@@ -1,15 +1,16 @@
 import React, {useState} from 'react';
 import style from './video.module.scss'
-export const Video = () => {
-   const embed = "RK1K2bCg4J8";
+export const Video = ({video}) => {
+
+   const embed = video.embed;
    const [start, setStart] = useState(false);
     return (
         <section className={style.video}>
             <div className="flex">
                 <div className="left">
-                    <h1>embed   RK1K2bCg4J8 </h1>
-                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut culpa deserunt dignissimos enim ?</p>
-                    <a href="https://www.youtube.com/watch?v=RK1K2bCg4J8&t=2414s">https://www.youtube.com/watch?v=RK1K2bCg4J8&t=2414s</a>
+                    <h1>embed   {embed} </h1>
+                    <p> {video.text}</p>
+                    <a href={video.link}> {video.link}</a>
                 </div>
                 <div className="right">
                     <div className="wrap">

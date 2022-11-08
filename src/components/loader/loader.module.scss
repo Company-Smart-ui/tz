@@ -1,0 +1,21 @@
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #f8f8f8;
+}
+
+.wrap{
+  height: 300px;
+  width: 300px;
+  max-width: 100% ;
+
+}
+
+.wrap , .loader{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

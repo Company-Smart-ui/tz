@@ -1,24 +1,25 @@
 import React from 'react';
 import style from './users.module.scss'
-import face from './face.webp'
+import {API} from "../../App";
 const Gi = ({className ,children})=>{
     return <div style={{gridArea:className}} className={className}>{children}  </div>
 }
 
 
 
-const One =({online})=>{
+const One =({userData})=>{
+    const {name , photo , online , registration , age } = userData
     return    <div className="card-grid">
-        <Gi className="photo   "> <img src={face} alt="face"/> </Gi>
-        <Gi className="name   "> Mr. smith </Gi>
-        <Gi className="status"> {online?"online":"offline"} </Gi>
-        <Gi className="registration"> Toronto</Gi>
-        <Gi className="age">35 year </Gi>
+        <Gi className="photo   "> <img src={API+photo} alt="face"/> </Gi>
+        <Gi className="name   ">  {name} </Gi>
+        <Gi className="status"> { online?"online":"offline"} </Gi>
+        <Gi className="registration"> {registration}</Gi>
+        <Gi className="age">{age} </Gi>
         <Gi className="action"> <button onClick={()=>{
             console.log(1)}} disabled={!online}  >Chat </button> </Gi>
     </div>
 }
-export const User = () => {
+export const User = ({users  } ) => {
     return (
         <section className={style.users}>
                 <h2>our users  </h2>
@@ -30,11 +31,11 @@ export const User = () => {
                 <Gi className="age">age </Gi>
                 <Gi className="action">action  </Gi>
             </div>
-        <One/>
-        <One online/>
-        <One/>
-        <One  online/>
-
+            {
+                users.map((userData ,i)=>{
+                    return <One userData={userData} key={i}/>
+                })
+            }
         </section>
     );
 };
